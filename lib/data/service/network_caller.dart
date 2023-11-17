@@ -32,27 +32,6 @@ class NetworkCaller{
 
   }
 
-  Future<String> getCurrentCity() async{
-    // get user permission
-    LocationPermission permission= await Geolocator.checkPermission();
-    if(permission== LocationPermission.denied){
-      permission=await Geolocator.requestPermission();
-    }
-    // fatch current location
 
-    Position position=await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high
-    );
-    // convert the location into a list of placemark objects
-
-    List<Placemark> placeMarks= await placemarkFromCoordinates(position.latitude, position.longitude);
-
-    String ? city=placeMarks[0].locality;
-
-    print(city);
-
-    return city??'';
-
-  }
 
 }
