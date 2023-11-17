@@ -14,6 +14,7 @@ class NetworkCaller{
     try{
       Response response=await get(Uri.parse(ulr));
       if(response.statusCode==200){
+        print(response.statusCode);
         return NetworkResponse(isSuccess: true, statusCode: response.statusCode, responseJson: jsonDecode(response.body));
       }
       else if(response.statusCode==404){
@@ -47,6 +48,8 @@ class NetworkCaller{
     List<Placemark> placeMarks= await placemarkFromCoordinates(position.latitude, position.longitude);
 
     String ? city=placeMarks[0].locality;
+
+    print(city);
 
     return city??'';
 
