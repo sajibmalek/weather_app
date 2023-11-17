@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  List<WeatherModel> _weather=[];
+  Weather? _weather;
 
 
   static const apiKey='';
@@ -29,12 +29,10 @@ void fatchWeather() async{
    String baseUrl='https://api.openweathermap.org/data/2.5/weather?lat=24.363589&lon=88.624135&appid=35b02f6681185c5b6bd827482c79ef5c';
    final NetworkResponse response =  await NetworkCaller().getRequest(baseUrl);
 
-  Map<String,dynamic> weatherlist;
-   print(response.statusCode);
+    print(response.statusCode);
    if(response.isSuccess){
    setState(() {
-     _weather=weatherlist.map((value) =>WeatherModel.fromJson(json)).toString()
-   });
+    });
 
    }
 
@@ -59,7 +57,7 @@ void fatchWeather() async{
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(_weather?.cityName??'Loading City'),
-  Text('${_weather?.temperature.toString()}+C')
+          Text('${_weather?.temperature.toString()}+C')
           ],
         ),
       ),
