@@ -12,7 +12,7 @@ class Weather_App extends StatelessWidget {
       initialBinding: GetXBindings(),
       debugShowCheckedModeBanner: false,
       title: 'Weather App',
-      home:HomeScreen() ,
+      home:const HomeScreen() ,
     );
 
   }

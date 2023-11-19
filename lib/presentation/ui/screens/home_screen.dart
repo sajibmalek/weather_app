@@ -50,7 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text('Max Temp" ${controller.weatherModel.main!.tempMax??'' }'),
                 Text('Max Temp" ${controller.weatherModel.main!.humidity??'' }'),
                 Text('Max Temp" ${controller.weatherModel.name }'),
-                Text('Max Temp" ${controller.weatherModel.wind?.gust }'),
+                Text('  id" ${controller.weatherModel.weather?[0].description }'),
+
+           //     Text('Max Temp" ${controller.weatherModel.wind?.gust }'),
+
               //  Image.network('${controller.weatherModel.weather?['']??''}',width: 20,height: 10,)
 
                // Text('${_weather?.temperature.toString()}+C')
